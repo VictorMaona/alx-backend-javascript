@@ -22,20 +22,20 @@ describe("Index page", function() {
 });
 
 describe("cart page", function() {
-    it("verify the right status code for the given URL", function(done) {
+    it("verify the right status code for the given url", function(done) {
 	request.get("http://localhost:7865/cart/12", function(err, res, body) {
 	    expect(res.statusCode).to.equal(200);
 	    done();
 	});
     });
-    it("verify the correct information and URL", function(done) {
+    it("verify the correct information and url", function(done) {
 	request.get("http://localhost:7865/cart/12", function(err, res, body) {
 	    expect(body).to.contain("Payment methods for cart 12");
 	    done();
 	});
     });
-    it("verify right status code for mismatched URL", function(done) {
-	request.get("http://localhost:7865/", function(err, res, body) {
+    it("verify right status code for mismatched url", function(done) {
+	request.get("http://localhost:7865/cart/hello", function(err, res, body) {
 	    expect(res.statusCode).to.equal(404);
 	    done();
 	});
